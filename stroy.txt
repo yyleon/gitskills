@@ -19,3 +19,17 @@ Firefox：Mozilla自己研制的Gecko内核和JavaScript引擎OdinMonkey。早�
 不同的浏览器对JavaScript支持的差异主要是，有些API的接口不一样，比如AJAX，File接口。对于ES6标准，不同的浏览器对各个特性支持也不一样。
 
 在编写JavaScript的时候，就要充分考虑到浏览器的差异，尽量让同一份JavaScript代码能运行在不同的浏览器中。
+
+默认已经安装好git，已知远程仓库地址，并具有远程仓库的管理员权限
+选择一个文件夹，git Bash Here
+设置用户名和密码
+git init // 初始化仓库
+git clone 你的远程仓库地址 // clone远程仓库地址
+git checkout -b main // 更改master分支到main
+git merge master // 将master分支合并到main
+git pull origin main --allow-unrelated-histories // 重新拉取一次
+git push origin main // push成功，显示Already up to date
+愉快地使用git吧
+————————————————
+版权声明：本文为CSDN博主「AscendingOne」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_41882686/article/details/115421337
