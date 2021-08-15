@@ -9,3 +9,5 @@
 要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
 
 Git支持多种协议，包括https，但ssh协议速度最快。
+
+Summary of what the different options are for: --all = Pretend as if all the refs in refs/ are listed on the command line as commit>. --no-decorate, --decorate[=short|full|no] = Print out the ref names of any commits that are shown. If short is specified, the ref name prefixes refs/heads/, refs/tags/ and refs/remotes/ will not be printed. If full is specified, the full ref name (including prefix) will be printed. --oneline = This is a shorthand for "--pretty=oneline --abbrev-commit" used together. --graph= Draw a text-based graphical representation of the commit history – gebbissimo Nov 9 '18 at 8:45
