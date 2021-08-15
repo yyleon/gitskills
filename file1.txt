@@ -1,5 +1,2 @@
 this is file1
-<<<<<<< Updated upstream
 I will make this file easy more.
-=======
->>>>>>> Stashed changes
