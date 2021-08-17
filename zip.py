@@ -1,4 +1,4 @@
-#encoding=gbk
+#coding=gbk
 
 import zipfile
 import os
