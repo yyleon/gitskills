@@ -1,0 +1,13 @@
+未找到符合It is required that your private key files are NOT accessible by others. This private key will be ignored. Load key "/home/leon/.ssh/id_rsa": bad permissions git@github.com: Permission denied (publickey). fatal: Could not read from remote repository.的结果。
+It is required that your private key files are NOT accessible by others. This private key will be ignored. Load key /home/leon/.ssh/id_rsa: bad permissions git@github.com: Permission denied (publickey). fatal: Could not read from remote repository.（不含引号）的搜索结果：
+
+错误：权限被拒绝（公钥） - GitHub Docshttps://docs.github.com › github › troubleshooting-ssh
+If it does not print anything, you will need to generate a new SSH key and associate it with GitHub. Tip: On most systems the default private keys ...
+
+使用git时ssh提示“Load key "/home/devid/.ssh/id_rsa": bad ...https://cloud.tencent.com › developer › article
+2019年6月13日 — It is required that your private key files are NOT accessible by others. This private key ... bad permissions Permission denied (publickey).
+
+How to Fix "WARNING: UNPROTECTED PRIVATE KEY FILE!"https://stackabuse.com › how-to-fix-warning-...
+翻译此页
+2021年8月1日 — It is required that your private key files are NOT accessible by others. ... ignore key: /path/to/my/key.pem Permission denied (publickey).
+
