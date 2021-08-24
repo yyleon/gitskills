@@ -1,315 +1,315 @@
-Git�����﷨����
+Git命令语法汇总
 
-���걱��
+梧雨北辰
 0.266
 2018.02.26 11:59:29
-���� 3,366
-�Ķ� 3,698
-��������ѧϰ��ѩ��Git�̳̺�Գ���Git�����ʹ���ܽᣬ������ʹ��Gitʱ������ҡ�
+字数 3,366
+阅读 3,698
+本文是在学习廖雪峰Git教程后对常用Git命令的使用总结，仅供在使用Git时方便查找。
 
-һ��Git���
-Git�ǵ�ǰ��Ϊ���еķֲ�ʽ�汾����ϵͳ��������2008�꣬GitHub��վ�����ˣ���Ϊ��Դ��Ŀ����ṩGit�洢��������Դ��Ŀ��ʼǨ����GitHub������Ŀ������ʹ��Git�汾����ϵͳ����ʮ�ֱ�ݣ����Ҷ�������Ŀ�������̾���ʮ����Ҫ�����塣
+一、Git简介
+Git是当前最为流行的分布式版本控制系统，尤其是2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub。在项目开发中使用Git版本管理系统不仅十分便捷，而且对整个项目开发流程具有十分重要的意义。
 
-������װGit
-Windowsϵͳ�����أ�Macϵͳ��Ϊ�Դ�Git���������
-���ص�ַ��https://git-scm.com/downloads
-���԰�װ��git --version���鿴��ʾ�汾�ż��ɹ���
+二、安装Git
+Windows系统需下载，Mac系统因为自带Git无需操作。
+下载地址：https://git-scm.com/downloads
+测试安装：git --version，查看显示版本号即成功。
 
-���������汾��
-����: 
-mkdir learntGit         �ڵ�ǰĿ¼�´���learntGit�ļ���
-cd  learnGit            ����learnGit�ļ�����
-pwd                     �鿴��ǰ·��
-git init                ����ǰĿ¼���Git���Թ����Ĳֿ�
-git add + �ļ���         ���ļ����ӵ��ֿ⣬�ɶ���ύ�����ӳɹ���û���κ���ʾ��
-git commit -m + �ύ˵��  ���ļ��ύ���汾��
+三、创建版本库
+命令: 
+mkdir learntGit         在当前目录下创建learntGit文件夹
+cd  learnGit            进入learnGit文件夹中
+pwd                     查看当前路径
+git init                将当前目录变成Git可以管理的仓库
+git add + 文件名         将文件添加到仓库，可多次提交（添加成功，没有任何显示）
+git commit -m + 提交说明  把文件提交到版本库
 
-ʾ��: �ύ3���ļ����汾����
+示例: 提交3个文件到版本库中
 git  add  file1.txt
 git  add  file2.txt  file3.txt
-git  commit -m  ��add 3 files��
-С��:
-1.ͼƬ����Ƶ�Ƕ������ļ���Gitֻ֪����С�仯�����ܸ��پ���仯
-2.Microft��word��ʽҲ�Ƕ����Ƹ�ʽ
-3.�����ļ���Git�ֿ⣬��������
-��һ����ʹ������ git add <file>,ע�⣬�ɷ������ʹ�ã����Ӷ���ļ�
-�ڶ�����ʹ�� git commit�����
+git  commit -m  “add 3 files”
+小结:
+1.图片，视频是二进制文件，Git只知到大小变化，不能跟踪具体变化
+2.Microft的word格式也是二进制格式
+3.添加文件到Git仓库，分两步：
+第一步：使用命令 git add <file>,注意，可反复多次使用，添加多个文件
+第二步：使用 git commit，完成
 
-�ġ�Git������������
-1.�鿴�汾״̬
-����: 
-git  status  �鿴��ǰ�汾���״̬
-git  diff    �鿴��ǰ�����һ���ύ�޸ĵ�����
-2.�汾����
-����: 
-git log                          ��ʾ���������Զ���ύ��־
-git log   --pretty== oneline     ��ʾlog,���ǲ���ʾ�ܶ����ҵ���Ϣ
-q                                ��ʾlog�汾��Ϣ�кܶ࣬ʹ��q��ֹͣ�鿴
-git reset ��hard head^         ���˵���һ���汾
-git reset ��hard head^^        ���˵����ϸ��汾
-git reset ��hard head~100      ���˵�֮ǰ100���汾
-git reset ��hard +commit_id    �ص�ĳ���汾�ŵİ汾
-����˵�����汾���˹��࣬����Ȼʹ�ñ����˵������°汾
-���һ�������鿴��log, ��ǰ������ڲ�δ�رգ��ҵ�ԭ���İ汾�ţ�ʹ����������ָ���
+四、Git开发常用命令
+1.查看版本状态
+命令: 
+git  status  查看当前版本库的状态
+git  diff    查看当前相对上一次提交修改的内容
+2.版本回退
+命令: 
+git log                          显示从最近到最远的提交日志
+git log   --pretty== oneline     显示log,但是不显示很多凌乱的信息
+q                                显示log版本信息有很多，使用q键停止查看
+git reset —hard head^         回退到上一个版本
+git reset —hard head^^        回退到上上个版本
+git reset —hard head~100      回退到之前100个版本
+git reset —hard +commit_id    回到某个版本号的版本
+问题说明：版本回退过多，想仍然使用被回退掉的最新版本
+情况一：曾经查看过log, 当前的命令窗口并未关闭，找到原来的版本号，使用如下命令恢复：
 
-git reset �� hard �汾��
-��������������Ѿ��رգ���֪��ԭ���İ汾�š�ʹ��git reflog�鿴����ʹ�ù�������������˰汾��ʱ�����������ʾ�汾�ţ�Ȼ�����ʹ�����һ�еķ������ָ��汾��
+git reset — hard 版本号
+情况二：命令行已经关闭，不知道原来的版本号。使用git reflog查看曾经使用过的命令，曾经回退版本的时候会在这里显示版本号，然后继续使用情况一中的方法，恢复版本。
 
-С�᣺
-ʹ��git log ���ǿ��Կ���һ�󴮵�commit id(�汾��), �ⲻͬ��SVN�İ汾��(����������),Git�İ汾����SHA1���������һ���ǳ�������֣���ֹ�ֲ�ʽϵͳ�����汾�ų�ͻ��
+小结：
+使用git log 我们可以看到一大串的commit id(版本号), 这不同于SVN的版本号(递增的数字),Git的版本号是SHA1计算出来的一个非常大的数字，防止分布式系统开发版本号冲突。
 
-3.���������ݴ���
-�������������ڵ����￴����Ŀ¼������һ���ļ��С���������һ������Ŀ¼.git�������Git�İ汾�⡣Git�汾�����ܶණ��������Ҫ�����ݴ���(stage����index)��GitΪ�����Զ�������һ����֧master,�Լ�master��һ��ָ�����HEAD��
+3.工作区与暂存区
+工作区是我们在电脑里看到的目录，比如一个文件夹。工作区有一个隐藏目录.git，这个是Git的版本库。Git版本库里存很多东西，最重要的是暂存区(stage或者index)。Git为我们自动创建第一个分支master,以及master的一个指针叫做HEAD。
 
-git  add   :  �����ļ����ǽ��ļ��޸����ӵ��ݴ�����
-git commit :  �ύ���ģ�ʵ���ǰ��ݴ��������������ύ����ǰ��֧
-һ���ύ֮���������û�жԹ��������µ��޸ģ���ô��������clean��
+git  add   :  添加文件，是将文件修改添加到暂存区。
+git commit :  提交更改，实际是把暂存区的所有内容提交到当前分支
+一但提交之后，如果你又没有对工作区有新的修改，那么工作区是clean的
 
-4.�����޸�
-����˵��:
-�����޸�һ���ļ�����һ���޸�֮��ִ��git add ���ڶ����޸Ĳ�ִ��git add ,Ȼ������ִ��git commit��ʹ��git status�鿴״̬�����Է��ֵڶ��ε��޸Ĳ�δ�ύ��������ΪGit�����޸ģ������add���ݴ����Ͳ�����뵽commit��
+4.管理修改
+问题说明:
+我们修改一个文件，第一次修改之后执行git add ，第二次修改不执行git add ,然后我们执行git commit并使用git status查看状态，可以发现第二次的修改并未提交。这是因为Git跟踪修改，如果不add到暂存区就不会加入到commit。
 
-�������������ִ��git add����git commit��Ҳ���Ա��ż��ύ��һ���޸ģ���add�ڶ����޸���commit
+解决方案：继续执行git add，再git commit，也可以别着急提交第一次修改，先add第二次修改再commit
 
-5.�����޸�
-���һ: �ļ��޸ĺ�û���ŵ��ݴ�����
-�����: �ļ��޸ĺ��Ѿ������ӵ��ݴ�����Ȼ���������޸ġ����޸Ĳ��ֱ�������
+5.撤销修改
+情况一: 文件修改后还没被放到暂存区，
+情况二: 文件修改后已经被添加到暂存区，然后又做了修改。又修改部分被撤销，
 
-���������
-git checkout --  + �ļ���    ���ļ��ڹ��������޸�ȫ��������
-ִ�н��:
-���һ��ִ�г����ͻص��Ͱ汾��һģһ����״̬��
-��������ļ���ָ����ϴ����ӵ��ݴ�����״̬����ʹ���ʹ��Ҳֻ�ܻص����һ���ݴ���״̬��
-���һ�����������֮�������ļ��ص����һ��git commit����addʱ��״̬
-���������Ҫ�����Ĳ����Ѿ�add���ݴ��������ǻ�û�б�commit
+解决方案：
+git checkout --  + 文件名    将文件在工作区的修改全部撤销。
+执行结果:
+情况一：执行撤销就回到和版本库一模一样的状态。
+情况二：文件会恢复到上次添加到暂存区的状态，即使多次使用也只能回到最近一次暂存区状态。
+情况一和情况二，总之都是让文件回到最近一次git commit或者add时的状态
+情况三：想要撤销的部分已经add到暂存区，但是还没有被commit
 
-���������
-1.ʹ��git reset HEAD +�ļ���    ���ݴ������޸ĳ��������·Żص���������
-2.�������1�����2�ķ��������޸�
-����ģ���Ҫ�����Ĳ����Ѿ��ύ���汾���У����ǻ�û��push��Զ�ֿ̲�
+解决方案：
+1.使用git reset HEAD +文件名    把暂存区的修改撤销，重新放回到工作区。
+2.根据情况1和情况2的方法撤销修改
+情况四：想要撤销的部分已经提交到版本库中，但是还没有push到远程仓库
 
-���������ʹ�汾���˵ķ���
-С�᣺git check�� ������ ����Ҫ��û�С�����, ������ͱ�����л���֧������(˫���)
+解决方法：使版本回退的方法
+小结：git check的 “—” 很重要，没有“—“, 该命令就变成了切换分支的命令(双横杠)
 
-6.ɾ���ļ�
-��� rm + �ļ���     ɾ���ļ�
-�������⣺
-�޸�һ���ļ���ʹ��add��commit�������ӵ��汾���У�Ȼ�������ļ���������ɾ���˴��ļ�����ʱ�ͻ�ʹ�������Ͱ汾�ⲻһ���ˡ�
-git status�������Щ�ļ���ɾ������ʱ�������������֣�
+6.删除文件
+命令： rm + 文件名     删除文件
+分析问题：
+修改一个文件，使用add、commit将其添加到版本库中，然后又在文件管理器中删除了此文件。这时就会使工作区和版本库不一致了。
+git status会告诉那些文件被删除。这时候处理方法有两种：
 
-ѡ��1��
-ȷʵҪ�Ӱ汾����ɾ�����ļ���ʹ��git rm +�ļ��� Ȼ��commit,
-�ļ��ʹӰ汾����ɾ����
-ѡ��2��
-��ʵ��ɾ���ˡ���Ϊ�汾���л��У����Խ���ɾ�ļ��ָ������°汾,
-�������һ���ύ֮���޸ĵ����ݶ�ʧ�ˡ�����ʹ�õ������ǣ�
-git check --  +�ļ���
-С�᣺git checkout ��ʵ��ʹ�ð汾���а汾�滻�������汾�������޸Ļ���ɾ��������"һ����ԭ"
+选择1：
+确实要从版本库中删除该文件，使用git rm +文件名 然后commit,
+文件就从版本库中删除了
+选择2：
+其实是删错了。因为版本库中还有，可以将误删文件恢复到最新版本,
+但是最近一次提交之后修改的内容丢失了。这里使用的命令是：
+git check --  +文件名
+小结：git checkout 其实是使用版本库中版本替换工作区版本，无论修改还是删除都可以"一键还原"
 
-�塢Զ�ֿ̲�
-1.���زֿ���Զ�ֿ̲�֮��Ĵ�������
-���زֿ�Git�ֿ��GitHub�ֿ�֮��Ĵ�����ͨ��SSH���ܵģ�������Ҫһ�����ã�
-��һ��������SSH Key��
+五、远程仓库
+1.本地仓库与远程仓库之间的传输设置
+本地仓库Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以需要一点设置：
+第一步：创建SSH Key。
 
-1.���û�����Ŀ¼�£��鿴�Ƿ���.sshĿ¼.
-2.����У��ٿ������Ŀ¼��û�� id_rsa��id_rsa.pub�������ļ���
-3.����У���ֱ��������һ����
-4.���û�У���Shell(Window�´�Git Bash),����SSH Key��
-5.ʹ�������SSH Key�� ssh -keygen -t rss -C  + github�����ַ
-�ڶ���������Զ�ֿ̲��key(��GitHubΪ��)
+1.在用户的主目录下，查看是否有.ssh目录.
+2.如果有，再看看这个目录有没有 id_rsa和id_rsa.pub这两个文件。
+3.如果有，可直接跳到下一步。
+4.如果没有，打开Shell(Window下打开Git Bash),创建SSH Key。
+5.使用命令创建SSH Key： ssh -keygen -t rss -C  + github邮箱地址
+第二步：设置远程仓库的key(以GitHub为例)
 
-1.��½GitHub���򿪡�Account Setting�� ->��SSH Keys��ҳ�档
-2.�����Add SSH Key��, ��������Title, ��key�ı�����ճ��id_rsa.pub�ļ������ݡ�
-3.���"Add key����ȷ�������˹�Կ
-С�᣺
-1.id_rsa��˽Կ������й¶��ȥ��id_rsa.public�ǹ�Կ�����Է��ĵĸ����κ��ˡ�
-2.GitHubͨ��SSH Key���ܣ���Ϊ��ʶ���Ƿ�Ϊ���û����ύ��
-3.GitHub�������Ӷ��key,����̨���Ե�Key���ӵ�GitHub���Ϳ�����ÿ̨������������
-4.����key��ʱ��key�����Ǻ���Ҫ�����Բ���������
+1.登陆GitHub，打开“Account Setting” ->“SSH Keys”页面。
+2.点击”Add SSH Key”, 填上任意Title, 在key文本框中粘贴id_rsa.pub文件的内容。
+3.点击"Add key”，确认添加了公钥
+小结：
+1.id_rsa是私钥，不能泄露出去；id_rsa.public是公钥，可以放心的告诉任何人。
+2.GitHub通过SSH Key加密，是为了识别是否为真用户的提交。
+3.GitHub允许添加多个key,将多台电脑的Key添加到GitHub，就可以在每台电脑上推送了
+4.创建key的时候，key并不是很重要，可以不设置密码
 
-2.�����زֿ���Զ�ֿ̲����ͬ��
-����: 
-git remote add origin +Զ�ֿ̲��ַ   �����زֿ����Զ�ֿ̲�
-git push -u origin master           ��һ������master��֧���������ݵ�Զ�ֿ̲�
-git push origin master              �������͵�Զ��(��һ��֮��
-С��: Ҫ����һ��Զ�ֿ̲⣬ʹ������ ��git remote add origin + Զ�ֿ̲��ַ����
-����֮��ʹ������ ��git push -u origin master�� ��һ������master��֧���������ݡ�
-ÿ�α����ύ֮��ֻҪ�б�Ҫ�Ϳ���ʹ������git push origin master���������޸ġ�
+2.将本地仓库与远程仓库关联同步
+命令: 
+git remote add origin +远程仓库地址   将本地仓库关联远程仓库
+git push -u origin master           第一次推送master分支的所有内容到远程仓库
+git push origin master              本地推送到远程(第一次之后）
+小结: 要关联一个远程仓库，使用命令 “git remote add origin + 远程仓库地址”，
+关联之后使用命令 “git push -u origin master” 第一次推送master分支的所有内容。
+每次本地提交之后，只要有必要就可以使用命令git push origin master推送最新修改。
 
-3.��Զ�ֿ̲��¡�ļ�������
-����: 
-git clone +Զ�ֿ̲��ַ   ��¡Զ�ֿ̲⵽���أ��൱�ڴ�������֮�����ı��زֿ�
+3.从远程仓库克隆文件到本地
+命令: 
+git clone +远程仓库地址   克隆远程仓库到本地，相当于创建了与之关联的本地仓库
 
-ʾ��: 
-��ʹ��cd�����л���ĳ���ļ���λ��Ȼ��ʹ����������:
+示例: 
+先使用cd命令切换到某个文件夹位置然后使用如下命令:
 git  clone git@github.com:DreamcoffeeZS/Demo_FDTemplateLayoutCell.git
-С��:
-1.��¡�ֿ⣬����Ҫ֪���ֿ��ַ(�鿴GitHub)��Ȼ��ʹ��git clone�����¡��
-2.Git֧�ֶ���Э�飬����https������ͨ��ssh֧�ֵ�ԭ��gitЭ���ٶȸ��졣
-3.ִ�и�����ɹ��󣬱��ؾͻ������Զ�ֿ̲�������ı��زֿ⣬����trackԶ�ֿ̲�ı仯
+小结:
+1.克隆仓库，首先要知道仓库地址(查看GitHub)，然后使用git clone命令克隆。
+2.Git支持多种协议，包括https，但是通过ssh支持的原生git协议速度更快。
+3.执行该命令成功后，本地就会出现于远程仓库相关联的本地仓库，可以track远程仓库的变化
 
-������֧����
-1.������
-a. ����֧(Ĭ�Ϸ�֧)�������汾commit���γɵ�ʱ����
-b. HEADָ��ָ��master��֧��masterָ��ָ��汾��commit������λ��
-c. ÿ��commit��masterָ�����ǰ�ƶ�һ�������Ų����ύ��master��֧��Խ��Խ����
-d. ÿ�δ����µķ�֧����dev��֧��Git�ᴴ���µķ�ָ֧��dev��Ȼ��devָ��ָ����masterָ����ͬ���ύλ�ã��ٽ�HEADָ��ָ��dev��������ǰ��֧��dev��
-e. �ϲ���֧��ʵ���Ǹı�ԭ����ָ֧���ָ�򡣺ϲ�֮�����ɾ�����õķ�֧
+六、分支管理
+1.理解概念：
+a. 主分支(默认分支)，代表版本commit的形成的时间线
+b. HEAD指针指向master分支，master指针指向版本库commit的最新位置
+c. 每次commit，master指针会向前移动一步，随着不断提交，master分支线越来越长。
+d. 每次创建新的分支，如dev分支，Git会创建新的分支指针dev，然后将dev指针指向与master指针相同的提交位置，再将HEAD指针指向dev，表明当前分支是dev。
+e. 合并分支其实就是改变原来分支指针的指向。合并之后可以删除无用的分支
 
-2.������ϲ���֧
-����: 
-git  checkout  +  ��֧��        �л���֧
-git  checkout  -b  dev         git checkout�������-b������ʾ�������л���֧
-git  branch                    �鿴��ǰ��֧,����ʾ���з�֧�����ڵ�ǰ��֧ǰ��*��
-git  merge  +  ��֧��           �ϲ���֧��ָ����֧���ķ�֧�ϲ�����ǰ��֧��
-git  branch +  ��֧��           ������֧
-git  branch  -d  + ��֧��       ɾ��ָ����֧���ķ�֧
-С�᣺
-1.Git�������ϲ���ɾ����֧���ǳ��죬��Ϊֻ�Ǹı���ָ���λ�á�
-2.Git����ʹ�÷�֧���ĳ�����񣬺ϲ���֧����ɾ����֧�����ֱ����master��֧�Ϲ���һ�������Ǹ���ȫ��
+2.创建与合并分支
+命令: 
+git  checkout  +  分支名        切换分支
+git  checkout  -b  dev         git checkout命令加上-b参数表示创建并切换分支
+git  branch                    查看当前分支,会显示所有分支，并在当前分支前加*号
+git  merge  +  分支名           合并分支，指定分支名的分支合并到当前分支。
+git  branch +  分支名           创建分支
+git  branch  -d  + 分支名       删除指定分支名的分支
+小结：
+1.Git创建、合并、删除分支都非常快，因为只是改变了指针的位置。
+2.Git鼓励使用分支完成某个任务，合并分支后再删掉分支，这和直接在master分支上工作一样，但是更安全。
 
-3.�����֧��ͻ
-����˵����
-��dev��֧��master��֧���޸�ͬһ���ط������ݣ������ڸ��Է�֧��commit��Ȼ���ڽ�dev��֧�ϲ���master��֧ʱ���ᷢ����ͻ��
+3.解决分支冲突
+问题说明：
+在dev分支和master分支上修改同一个地方的内容，并且在各自分支上commit。然后在将dev分支合并到master分支时，会发生冲突。
 
-�������:
-1.������ͻ��ʱ��ʹ��git status �ɲ鿴��Щ��ͻ�ļ�
-2.Git�� <<<<<<<��=======��>>>>>>>�ڳ�ͻ�ļ��б�Ǽǳ���ͬ��֧�����ݡ�
+问题分析:
+1.发生冲突的时候，使用git status 可查看哪些冲突文件
+2.Git用 <<<<<<<，=======，>>>>>>>在冲突文件中标记记出不同分支的内容。
 
-�������:
+解决方案:
 
-1.���ļ���ͻ��λ�ã�ȡ�᲻ͬ��֧���޸ģ�ȷ�����ս����Ȼ��ִ��add��commit��
-2.Ȼ���ô�������git log ���Բ鿴��֧�ϲ�������磺
+1.在文件冲突的位置，取舍不同分支的修改，确定最终结果。然后执行add和commit。
+2.然后用带参数的git log 可以查看分支合并情况，如：
 git log -- graph -- pretty==online --abbrev-commit
-3.�����ɾ��dev��֧
-С�᣺git log -- graph ������Բ鿴��֧�ϲ�ͼ
+3.最后是删除dev分支
+小结：git log -- graph 命令可以查看分支合并图
 
-4.��֧��������
-����˵����
-���ڷ�֧�ϲ���ͨ�����������ֱ��ʹ��git merge������кϲ�����Щ����Fast Forwardģʽ�Ŀ��ٺϲ������ֺϲ���ȱ������ɾ����֧֮��ᶪʧ��֧����Ϣ��
+4.分支管理策略
+问题说明：
+对于分支合并，通常的情况我们直接使用git merge命令进行合并，这些都是Fast Forward模式的快速合并。这种合并的缺点在于删除分支之后会丢失分支的信息。
 
-���������
-ǿ�ƽ���Fast forward ģʽ�ĺϲ���Git����mergeʱ����һ���µ�commit�������ӷ�֧��ʷ�Ϳ��Կ�����֧��Ϣ������ʱ��Ҫʹ�á�- no-ff������
+问题分析：
+强制禁用Fast forward 模式的合并。Git会在merge时生成一个新的commit，这样从分支历史就可以看出分支信息，禁用时需要使用—- no-ff参数。
 
-ʾ��˵����
+示例说明：
 
-��ִ�кϲ�ʱ�Ľ���Fast forward��һ��ʾ�����£�
-git merge --no-ff -m ���ϲ���֧�����µ�commit�� dev
-��֧���ԣ�
+在执行合并时的禁用Fast forward的一个示例如下：
+git merge --no-ff -m “合并分支生成新的commit” dev
+分支策略：
 
-��ʵ�ʿ����У�������Ҫ��ѭ�ļ�������ԭ��
-1.master��֧Ӧ�����ȶ��ģ������������汾��ƽʱ����������ɻ�
-2.dev��֧�����ǹ����ķ�֧��dev��֧���ȶ����ڰ汾����ʱ�ٽ�dev��֧�ϲ���master��֧
-3.�����ڼ�ÿ���˶���dev��֧�ϸɻÿ���˶����Լ��ķ�֧��ʱ��ʱ����dev��֧�ϲ��ͺ���
-5.Bug��֧֮stash
-����˵����
-��ǰ����dev��֧�Ϲ���������δ���޷��ύ�������ֳ���ʮ�ֽ�����bug��Ҫ���������ʹ��stash���ܣ�����ǰ�Ĺ����ֳ������ء����������Ժ�ָ����ں����������
+在实际开发中，我们需要遵循的几个基本原则
+1.master分支应该是稳定的，仅用来发布版本，平时不能在上面干活
+2.dev分支是我们工作的分支，dev分支不稳定，在版本发布时再将dev分支合并到master分支
+3.开发期间每个人都在dev分支上干活，每个人都有自己的分支，时不时的往dev分支合并就好了
+5.Bug分支之stash
+问题说明：
+当前正在dev分支上工作，工作未完无法提交，但是又出现十分紧急的bug需要解决。可以使用stash功能，将当前的工作现场“储藏”起来。等以后恢复现在后继续工作。
 
-����: 
-git stash                   ����ǰ�Ĺ����ֳ������ء���������ʱ�鿴status��
-                            �������Ǹɾ��ģ����Է��Ĵ�����֧�޸�bug
-git stash list              �鿴��ǰ�������б�
-git stash apply             �ָ�������������stash���ݲ���ɾ��
-git stash drop              ɾ������������
-git stash pop               �ָ����������ݲ�ɾ�����ݣ���ʹ��git stash list���ܿ���ɾ����stash
-git stash apply stash@{0}   ���stash���ָ�ʱ������git stash list�鿴��ţ���ִ��stash�ָ�
-С�᣺
-1.�޸�bugʱ�����ǻ�ͨ�������µ�bug��֧�����޸���Ȼ��ϲ������ɾ����
-2.����ͷ����û�����ʱ���Ȱѹ����ֳ�git stashһ�£�Ȼ��ȥ�޸�bug���޸�����git stash pop���ص������ֳ���
+命令: 
+git stash                   将当前的工作现场“储藏”起来，此时查看status，
+                            工作区是干净的，可以放心创建分支修改bug
+git stash list              查看当前储藏区列表
+git stash apply             恢复储藏区，但是stash内容并不删除
+git stash drop              删除储藏区内容
+git stash pop               恢复储藏区内容并删除内容，再使用git stash list不能看到删除的stash
+git stash apply stash@{0}   多次stash，恢复时候，先用git stash list查看编号，再执行stash恢复
+小结：
+1.修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
+2.当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
 
-6.Feature��֧
-����˵����
-����һ���¹���ʱ����϶���ϣ����ΪһЩʵ�����ʵĴ��룬������֧�����ˣ����ԣ�ÿ����һ���¹��ܣ�����½�һ��feature��֧�������濪������ɺ󣬺ϲ������ɾ����feature��֧��
+6.Feature分支
+问题说明：
+添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。
 
-�����Ҫ����һ��û�б��ϲ��ķ�֧�����ǿ���ǿ��ɾ��
-���git branch -D <��֧��>  ǿ��ɾ����֧
-7.����Э��
-��������Զ�ֿ̲��¡��ʵ����Git�Զ��ѱ���master��֧��Զ��master��֧��Ӧ����������Զ�ֿ̲���Ĭ����origin
+如果需要丢弃一个没有被合并的分支，我们可以强行删除
+命令：git branch -D <分支名>  强制删除分支
+7.多人协作
+理解概念：从远程仓库克隆，实际上Git自动把本地master分支和远程master分支对应起来，并且远程仓库名默认是origin
 
-����: 
-git remote                                   �鿴Զ�ֿ̲���Ϣ
-git remote -v                                �鿴Զ�ֿ̲����ϸ��Ϣ;
-                                             ��ʾ�˿���ץȡ�����͵�origin��ַ��������Ȩ��ʱ������push��ַ
-git push origin master                 ���ͷ�֧: ������master��֧���͵���Ӧ��Զ��master��֧��
-git push origin dev                    ���ͷ�֧: ������dev��֧���͵���Ӧ��Զ��dev��֧��
-git checkout -b +��֧�� origin/��֧��    �ڱ��ش�����Զ�̷�֧��Ӧ�ķ�֧
-git pull                               �ѵ�ǰ��֧��Ӧ��Զ�̷�֧�ϵ�������ȡ����
-git branch ��-set-upstream +��֧�� origin/��֧��   �������ط�֧��Զ�̷�֧�Ĺ��� 
-����˵��:
-1.master��֧������֧�������Ҫʱ����Զ��ͬ��
-2.dev��֧�ǿ�����֧���Ŷ����г�Ա����Ҫ�����湤��������ҲҪ��Զ��ͬ��
-3.bug��ֻ֧���ڱ����޸�bug��û��Ҫ����Զ�̣������ϰ���Ҫ����ÿ�ܵ����޸��˼���bug
-4.feature��֧�Ƿ����͵�Զ�̣�ȡ�������Ƿ��ͬ�º��������濪��
-5.����Э������ʱ����һ���master��dev��֧�����͸��Ե��޸�
-6.�ڱ��ش�����Զ�̷�֧��Ӧ�ķ�֧��ʹ��git checkout -b branch-name origin/branch-name�����غ�Զ�̷�֧���������һ�£�
-7.��Զ��ץȡ��֧��ʹ��git pull������г�ͻ��Ҫ�ȴ�����ͻ��
+命令: 
+git remote                                   查看远程仓库信息
+git remote -v                                查看远程仓库更详细信息;
+                                             显示了可以抓取和推送的origin地址，无推送权限时看不到push地址
+git push origin master                 推送分支: 将本地master分支推送到对应的远程master分支上
+git push origin dev                    推送分支: 将本地dev分支推送到对应的远程dev分支上
+git checkout -b +分支名 origin/分支名    在本地创建和远程分支对应的分支
+git pull                               把当前分支对应的远程分支上的内容拉取下来
+git branch —-set-upstream +分支名 origin/分支名   建立本地分支和远程分支的关联 
+操作说明:
+1.master分支是主分支，会因此要时刻与远程同步
+2.dev分支是开发分支，团队所有成员都需要在上面工作，所以也要与远程同步
+3.bug分支只用于本地修复bug，没必要推送远程，除非老板需要看你每周到底修改了几个bug
+4.feature分支是否推送到远程，取决于你是否和同事合作在上面开发
+5.多人协作开发时，大家会在master和dev分支上推送各自的修改
+6.在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+7.从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
 
-С�᣺
-1.Э������ʱ���������޸ĵ�ͬһ���ļ������Դӱ������Ϳ��ܻ���ʾ��ͻ����������ǣ���git pull,�ٰ����µ��ύ��origin/devץ������Ȼ���ڱ��غϲ��������ͻ�������͡�
-2.��dev��֧�Ͽ������ͱ��봴��Զ��origin��dev��֧������
-3.���pullʧ�ܣ�˵��û��ָ�����ص�dev��֧��Զ�̷�֧origin/dev��֧���ӣ�������ʾ������dev��origin/dev�����ӹ�ϵ��
+小结：
+1.协作开发时，两个人修改的同一个文件，各自从本地推送可能会提示冲突。解决方法是，先git pull,再把最新的提交从origin/dev抓下来，然后在本地合并，解决冲突，再推送。
+2.在dev分支上开发，就必须创建远程origin的dev分支到本地
+3.如果pull失败，说明没有指定本地的dev分支与远程分支origin/dev分支链接，根据提示，设置dev和origin/dev的链接关系：
 
-git branch ��-set-upstream dev origin/dev ,Ȼ���ٴ�pull
-�ߡ���ǩ����
-�����ǩ:
-1.Git�ı�ǩ�ǰ汾��Ŀ��գ�ʵ������ָ��ĳ��commit��ָ�룬ֻ�����������ָ֧�����������ƶ���
-2.��ǩ�������ǰ������ǿ��ٵ��ҵ�ĳ��ʱ��İ汾�������ڿ�����ÿ���׶�ʱ���õĿ����汾��ǩ(tag)��
+git branch —-set-upstream dev origin/dev ,然后再次pull
+七、标签管理
+理解标签:
+1.Git的标签是版本库的快照，实际上是指向某个commit的指针，只不过它不想分支指针那样可以移动。
+2.标签的作用是帮助我们快速的找到某个时候的版本，常用于开发到每个阶段时设置的开发版本标签(tag)。
 
-���
-git tag  + <tag��>              ����һ����ǩ
-git tag                         �鿴���б�ǩ
-git tag  + <tag��> + commitID   ͨ��git log�鿴�ύ���İ汾Id,����Ϊ����ĳ��commitʱ�̵İ汾���ϱ�ǩ
-git show + <tagname>            �鿴��ǩ��Ϣ�����Կ���tag��˵�������������ʱ�����˵���������Կ���PGPǩ����Ϣ
-git tag -a + <tagname> -m + <tagDescription>  ��������˵���ı�ǩ����-aָ����ǩ����-mָ��˵������
-git tag -s + <tagname> -m + <tagDescription>  ͨ��-s��˽Կǩ��һ����ǩ��ʹ��PGPǩ�����������밲װgpg(GunPG)��û��gpg��Կ�Իᱨ��
-git tag -d + <tagname>          ɾ����ǩ
-git push origin + <tagname>     ����ĳ����ǩ��Զ��
-git push origin -- tags             һ��������ȫ����δ���͵�Զ�̵ı��ر�ǩ
-git push origin :refs/tags/<tagname>  ɾ��һ��Զ�̱�ǩ����½Զ�̿ɲ鿴ɾ����ǩЧ����
+命令：
+git tag  + <tag名>              创建一个标签
+git tag                         查看所有标签
+git tag  + <tag名> + commitID   通过git log查看提交过的版本Id,可以为曾经某个commit时刻的版本打上标签
+git show + <tagname>            查看标签信息，可以看到tag的说明（如果创建的时候带有说明），可以看到PGP签名信息
+git tag -a + <tagname> -m + <tagDescription>  创建带有说明的标签，用-a指定标签名，-m指定说明文字
+git tag -s + <tagname> -m + <tagDescription>  通过-s用私钥签名一个标签，使用PGP签名，不过必须安装gpg(GunPG)，没有gpg秘钥对会报错
+git tag -d + <tagname>          删除标签
+git push origin + <tagname>     推送某个标签到远程
+git push origin -- tags             一次性推送全部尚未推送到远程的本地标签
+git push origin :refs/tags/<tagname>  删除一个远程标签，登陆远程可查看删除标签效果。
 
-ʾ����ɾ���Ѿ����͵�Զ�̵ĵı�ǩ����Ҫ����ɾ�����ر�ǩ��Ȼ���Զ��ɾ����ʹ��
-git push origin :refs/tags/��ǩ��
-С�᣺
-1.Ĭ�ϱ�ǩ�Ǵ��������ύ��commit�ϵ�
-2.�鿴��ǩ�б�ʱ����ǩ���ǰ���ʱ��˳���г��ġ�
-3.������ǩ����ֻ�洢�����أ������Զ����͵�Զ�̣����Դ���ı�ǩ�����ڱ��ذ�ȫɾ��
+示例：删除已经推送到远程的的标签，需要首先删除本地标签，然后从远程删除，使用
+git push origin :refs/tags/标签名
+小结：
+1.默认标签是打在最新提交的commit上的
+2.查看标签列表时，标签不是按照时间顺序列出的。
+3.创建标签都会只存储到本地，不会自动推送到远程，所以打错的标签可以在本地安全删除
 
-��.ʹ��GItHub
-1.��GitHub�ϣ����������Fork��Դ�ֿ⣬�൱���ǿ������Լ�Զ�ֿ̲���
-2.����ӵ�е�Fork��ֿ�Ķ�дȨ��
-3.��������pull request���ٷ��ֿ������״���
+八.使用GItHub
+1.在GitHub上，可以任意的Fork开源仓库，相当于是拷贝到自己远程仓库中
+2.我们拥有的Fork后仓库的读写权限
+3.可以推送pull request给官方仓库来贡献代码
 
-��.�Զ���Git
-1.���������ļ�
-������ʹ��Git��ʱ����ʱ��ĳЩ�ļ����ò�����gitĿ¼�£����������ֲ��ܱ��ύ(������һЩ����ִ�����ɵ��м��ļ�)����ʱ����Ҫ�õ������ļ���
-ԭ�����༭.gitignore�ļ���������ڰ汾���ﲢ�ύ��Git��.gitignore�ļ��м�¼��Ҫ�����ύ���ļ����͡�
-���������Լ���ͷ��д.gitignore�ļ����鿴Github�Ѿ�Ϊ����׼���õ������ļ����ٸ����Լ�����Ҫ�޸ĺ����ļ����ɡ�
+九.自定义Git
+1.忽略特殊文件
+在我们使用Git的时候，有时候某些文件不得不放在git目录下，但是它们又不能被提交(可能是一些程序执行生成的中间文件)。这时候需要用到忽略文件。
+原理：编辑.gitignore文件，将其放在版本库里并提交到Git。.gitignore文件中记录需要忽略提交的文件类型。
+我们无需自己从头编写.gitignore文件，查看Github已经为我们准备好的配置文件，再根据自己的需要修改忽略文件即可。
 
-2.���ñ���
-ͨ����һЩ���ӵ�����ָ�����������Ը��ӷ����ʹ��Git
+2.配置别名
+通过对一些复杂的命令指定别名，可以更加方便的使用Git
 
-git config -- global alias.st status        ָ���������鿴�汾״̬
-git config -- global alias.ci commit        ָ���������ύ�汾��
-git config -- global alias.co checkout      ָ���������л���֧
-git config -- global alias.br branch        ָ���������鿴��֧
-git config -- global alias.last ��log -1��    ָ����������ʾ���һ���ύ��Ϣ
+git config -- global alias.st status        指定别名：查看版本状态
+git config -- global alias.ci commit        指定别名：提交版本库
+git config -- global alias.co checkout      指定别名：切换分支
+git config -- global alias.br branch        指定别名：查看分支
+git config -- global alias.last ‘log -1’    指定别名：显示最后一次提交信息
 
-ʾ�������ñ��������ֱ��ʹ��git st �鿴��ǰ�汾״̬
+示例：设置别名后可以直接使用git st 查看当前版本状态
 
-���䣺git config --global alias.lg "log --color --graph --pretty=format:
+补充：git config --global alias.lg "log --color --graph --pretty=format:
     '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) 
      %C(bold blue)<%an>%Creset' --abbrev-commit"
-�鿴��ϸlog
-����˵����
+查看详细log
+参数说明：
 -- global
-1.�ò�����ȫ�ֲ���������Git��ʱ�򣬼���--global����Ե�ǰ�û������ã�������Ӿ�ֻ�Ե�ǰ�Ĳֿ������á�
+1.该参数是全局参数，配置Git的时候，加上--global是针对当前用户起作用，如果不加就只对当前的仓库起作用。
 
-2.���õı����������������ļ��У�ÿ���ֿ��git�����ļ�������.git/config�ļ��У���������[alias]���棬Ҫɾ��������ֱ�ӰѶ�Ӧ����ɾ�����ɡ�
+2.配置的别名被保存在配置文件中，每个仓库的git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。
 
-3.��ǰ�û���Git�����ļ������û���Ŀ¼�µ�һ�������ļ�.gitconfig�У�
+3.当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中：
 
-//�鿴�����ļ�������
-cat .git/config �鿴��ǰ�ֿ��Git�����ļ�
-cat .gitconfig  �鿴��ǰ�û���Ŀ¼�����ص������ļ�
-3.�Git������
-�Git������
+//查看配置文件的命令
+cat .git/config 查看当前仓库的Git配置文件
+cat .gitconfig  查看当前用户主目录下隐藏的配置文件
+3.搭建Git服务器
+搭建Git服务器
