@@ -12,4 +12,4 @@ USE db_test;
 SELECT *
 FROM tb_student;
 " > $time-student.xlsx
-bash ftp.sh "-O Other/$time-student.xlsx"
+bash ftp.sh "-O Other/ $time-student.xlsx"
