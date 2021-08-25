@@ -1,0 +1,2 @@
+SELECT COUNT(*) AS CNT
+FROM tb_student;
