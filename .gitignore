@@ -6,5 +6,5 @@ ods.sql
 ods1.sql
 tempCodeRunnerFile.sh
 ftp.sh
-.xlsx
-.xls
+*.xlsx
+*.xls
