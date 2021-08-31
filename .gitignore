@@ -10,3 +10,4 @@ ftp.sh
 *.xls
 shell collections.md
 *.mongodb
+telegram_bot*
