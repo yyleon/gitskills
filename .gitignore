@@ -12,3 +12,4 @@ shell collections.md
 *.mongodb
 telegram_bot*
 Python*.py
+*.class
