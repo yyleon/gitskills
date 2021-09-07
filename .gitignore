@@ -13,3 +13,4 @@ shell collections.md
 telegram_bot*
 Python*.py
 *.class
+mysqlclient-2.0.3/*
