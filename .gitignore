@@ -14,3 +14,5 @@ telegram_bot*
 Python*.py
 *.class
 mysqlclient-2.0.3/*
+*.png
+sql01.sql
