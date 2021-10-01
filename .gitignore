@@ -16,3 +16,4 @@ Python*.py
 mysqlclient-2.0.3/*
 *.png
 sql01.sql
+shell04.sh
